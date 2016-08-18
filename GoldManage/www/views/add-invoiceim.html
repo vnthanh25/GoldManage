@@ -1,0 +1,112 @@
+<md-dialog class="fullscreen-dialog" ng-cloak>
+  <form>
+    <md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>Phiếu nhập kho</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="closeDialog()">
+			<!--<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>-->
+			&#10005;
+			</md-button>
+		</div>
+    </md-toolbar>
+    <md-dialog-content>
+	<div class="md-dialog-content">
+		<div class="form-group" ng-controller="dpkCtrl">
+			<div class="datepickerdemo">
+				<label>Ngày tháng:</label>
+				<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+				<label>&nbsp;&nbsp;Số CT:</label>&nbsp;&nbsp;
+				<input type="text" ng-model="no" placeholder="Số CT">
+			</div>
+		</div>
+		<div class="form-group" ng-controller="getDataCtrl">
+				<div class="col-md-0">
+					<label>Ghi nợ:</label>
+				</div>
+				<div class="col-md-4">
+					<select class="form-control" ng-model="debit" ng-options="acctbl.id as (acctbl.code + '--' +acctbl.name) for acctbl in acctables"></select>
+				</div>
+				<div class="col-md-0">
+					<label>Ghi có:</label>
+				</div>
+				<div class="col-md-4">
+					<select class="form-control" ng-model="acctabley" ng-options="acctbl.code + ' ' + acctbl.name for acctbl in acctables"></select>
+				</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<div class="form-group">
+			<textarea class="form-control" rows="1" ng-model="description" placeholder="Diễn giải"></textarea>
+		</div>
+		<hr />
+		<h4>Nhập chi tiết</h4> 
+		<div class="form-group">
+			<div class="col-md-2">
+				<input type="text" class="form-control" placeholder="mã hàng" ng-model="form.name"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-4">
+				<input type="text" class="form-control" placeholder="Tên hàng" ng-model="form.email"/>
+			</div>
+		</div>
+		<div class="form-group" ng-controller="getItemCtrl">
+			<div class="col-md-3">
+				<select class="form-control" placeholder="Loại vàng" ng-model="selectedName" ng-options="item.code + ' ' + item.name for item in items"></select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-1">
+				<input class="form-control" type="text" ng-model="passw2" placeholder="TL quy đổi">
+			</div>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary" ng-click="saveContact()">Thêm</button>
+			<button class="btn btn-default" ng-click="cancelForm()">Hủy</button>
+		</div>
+		<hr />
+		<table class="table table-bordered">
+			  <tr>
+				<th>&#9998;</th>
+				<th>Mã hàng</th>
+				<th>Tên hàng</th>
+				<th>Loại vàng</th>
+				<th>TL quy đổi</th>
+				<th><button class="btn btn-sm btn-default">&#10005;</button></th>
+			  </tr>
+			  <tr>
+				<td>
+				  <button class="btn btn-sm btn-default">&#9998;</button>
+				</td>
+				<td>M001</td>
+				<td>hàng mua vào 1</td>
+				<td>9999</td>
+				<td>1.170</td>
+				<td><input type = "checkbox"></td>
+			  </tr>
+			   <tr>
+				<td>
+				  <button class="btn btn-sm btn-default">&#9998;</button>
+				</td>
+				<td>M002</td>
+				<td>hàng mua vào 2</td>
+				<td>18</td>
+				<td>1.1700</td>
+				<td><input type = "checkbox"></td>
+			  </tr>
+			</table>
+	</div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button>
+       &#10004; Lưu
+      </md-button>
+      <md-button>
+        &#10005; Thoát
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

@@ -1,0 +1,29 @@
+﻿@section SPAViews {
+    @Html.Partial("_Home")
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+}
+
+aaaa
+
+@section myhead{
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/www/lib/angular/js/angular.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+    <script src="~/MyScripts/Services.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/ShowStudentsController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/AddStudentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/EditStudentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/DeleteStudentController.js")"></script>
+}
