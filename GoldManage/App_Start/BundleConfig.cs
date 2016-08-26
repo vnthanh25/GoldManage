@@ -41,6 +41,19 @@ namespace GoldManage
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
                  "~/Content/Site.css"));
+
+            // Use Angularjs.
+            bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
+                "~/www/lib/angular/js/angular.js",
+                "~/www/lib/angular/js/angular-animate.js",
+                "~/www/lib/angular/js/angular-ui-router.js",
+                "~/www/lib/angular/js/angular-ui-bootstrap-tpls.js",
+                "~/www/lib/angular/js/angular-aria.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/angularjs").Include(
+                "~/www/lib/angular/css/angular-csp.css"
+                ));
         }
     }
 }

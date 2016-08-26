@@ -1,0 +1,25 @@
+<form role="form">
+  <h3 ng-show="edit">Thêm thợ:</h3>
+  <h3 ng-hide="edit">Cập nhật thông tin thợ:</h3>
+  <div data-ng-init="loadWorkerPage()">
+	  <div class="form-group">
+		<label>Mã thợ:</label>
+		<input class="form-control" type="text" ng-model="no" placeholder="Mã thợ">
+	  </div>
+	  <div class="form-group">
+		<label>Tên thợ:</label>
+		<input class="form-control" type="text" ng-model="name" placeholder="Tên thợ">
+	  <div>
+	  <div class="form-group">
+		<label>Địa chỉ:</label>
+		<textarea class="form-control" rows="2" ng-model="address" placeholder="Địa chỉ"></textarea>
+	  </div>
+	  <div class="form-group">
+		<label>Số ĐT:</label>
+		<input class="form-control" type="text" ng-model="phone" placeholder="sdt">
+	  </div>
+	</div>
+  <button class="btn btn-default" ng-disabled="error || incomplete">&#10004; Lưu</button>
+  <button class="btn btn-default" ng-disabled="error || incomplete">
+	<a href="#/worker">&#10005; Thoát</a></button>
+</form>

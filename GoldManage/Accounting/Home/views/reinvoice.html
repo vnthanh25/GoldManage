@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8" ng-controller="getInvoiceCtrl">
+			<h3>Phiếu nhập kho</h3>
+			<table class="table table-bordered">
+			  <tr>
+				<th>&#9998;</th>
+				<th>Số CT</th>
+				<th>Ngày CT</th>
+				<th>Diễn giải</th>
+				<th>TL quy đổi</th>
+				<th>Tổng tiền</th>
+				<th><button class="btn btn-sm btn-default">&#10005;</button></th>
+			  </tr>
+			  <tr ng-repeat="item in ininvoices">
+				<td ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+				  <button class="btn btn-sm btn-default" ng-click="showCustom($event, item)">&#9998;</button>
+				</td>
+				<td>{{item.no}}</td>
+				<td>{{item.indate}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.totalweight}}</td>
+				<td>{{item.total}}</td>
+				<td><input type = "checkbox"></td>
+			  </tr>
+			</table>
+			<br>
+			<div id="dialogContainer" ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+				<button class="btn btn-default" ng-click="showCustom($event, null)">&#9998; Tạo mới</button>
+				<!--<md-button class="btn btn-default" ng-click="showCustom($event, 0, null)" flex-gt-md="auto">
+				   &#9998; Tạo mới
+				</md-button>-->
+			</div>
+			<div class="ui-view-container">
+				<div ui-view>
+				  <!-- default content can go here but there will be a flicker on some pages loading -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

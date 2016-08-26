@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Mặt hàng</h3>
+			<table class="table table-bordered" ng-controller="getItemCtrl">
+			  <tr>
+				<th>&#9998;</th>
+				<th>Mã MH</th>
+				<th>Tên mặt hàng</th>
+				<th><button class="btn btn-sm btn-default">&#9745;</button></th>
+				<th><button class="btn btn-sm btn-default">&#10005;</button></th>
+			  </tr>
+			  <tr ng-repeat="item in items">
+				<td>
+				  <!--<button class="btn btn-sm btn-default">&#9998;</button>-->
+				  <a class="btn btn-small btn-primary" href="#/item/add/{{item.id}}">&#9998;</a>
+				</td>
+				<td>{{item.code}}</td>
+				<td>{{item.name}}</td>
+				<td><input type = "checkbox" ng-checked="item.isuse"></td>
+				<td><input type = "checkbox"></td>
+			  </tr>
+			</table>
+			<br>
+			<a class="btn btn-default" href="#/item/add/{{-1}}">&#9998; Tạo mới</a>
+			<div class="ui-view-container">
+				<div ui-view ng-controller="getItemCtrl">
+				  <!-- default content can go here but there will be a flicker on some pages loading -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

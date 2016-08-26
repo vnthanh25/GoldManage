@@ -1,0 +1,20 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Views</title>
+</head>
+<body>
+    <div>
+        @Html.Raw(File.ReadAllText(Server.MapPath("~/Views/Home/views/") + ViewBag.screen))
+    </div>
+</body>
+</html>
