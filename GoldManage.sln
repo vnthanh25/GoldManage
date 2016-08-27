@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldManage", "GoldManage\GoldManage.csproj", "{791E8B4C-A151-4E7D-8CAF-CD0C94CB2AA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldManageModel", "GoldManageModel\GoldManageModel.csproj", "{41FA1E1D-157D-4E9A-BC32-FDB693EBA564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{791E8B4C-A151-4E7D-8CAF-CD0C94CB2AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{791E8B4C-A151-4E7D-8CAF-CD0C94CB2AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{791E8B4C-A151-4E7D-8CAF-CD0C94CB2AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FA1E1D-157D-4E9A-BC32-FDB693EBA564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FA1E1D-157D-4E9A-BC32-FDB693EBA564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FA1E1D-157D-4E9A-BC32-FDB693EBA564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FA1E1D-157D-4E9A-BC32-FDB693EBA564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

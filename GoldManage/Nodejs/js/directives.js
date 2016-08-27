@@ -23,4 +23,22 @@ angular.module('app.directives', [])
       elem.datepicker(options);
     }
   }
+})
+.directive("w3TestDirective", function() {
+    return {
+        restrict : "A",
+        template : "<h1>Made by a directive!</h1>"
+    };
+})
+.directive('autoComplete', function($timeout) {
+    return function(scope, elem, iAttrs) {
+            elem.autocomplete({
+                source: scope[iAttrs.uiItems],
+                select: function() {
+                    $timeout(function() {
+                      elem.trigger('input');
+                    }, 0);
+                }
+            });
+    };
 });

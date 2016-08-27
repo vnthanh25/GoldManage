@@ -55,6 +55,12 @@ angular.module('invoiceex', [])
 				$scope.exinvoicedetails = goalaccAPIservice.getExInvoiceDetails(item.id);
 				//alert($scope.ininvoicedetails[0].no);
 				//alert($scope.ininvoicedetails[1].no);
+				$scope.itemno = '';
+				$scope.name = '';
+				$scope.weightO = 0;
+				$scope.weight = 0;
+				$scope.price = 0;
+				$scope.amount = 0;
 			}
 			else{
 				$scope.no = '';
@@ -66,17 +72,41 @@ angular.module('invoiceex', [])
 		//$scope.itemno = '';
 		//$scope.name = '';
 		//$scope.weight = '';
+		$scope.flag = true;
 		$scope.loadItemDetail = function(itemdetail){
-			$scope.itemno = itemdetail.no;
-			$scope.name = itemdetail.name;
-			$scope.weight = itemdetail.weight;
-			$scope.price = itemdetail.price;
-			$scope.amount = itemdetail.amount;
-			$scope.itemtype = itemdetail.itemtype;
+			if(itemdetail!=null){
+				$scope.flag = true;
+				$scope.itemno = itemdetail.no;
+				$scope.name = itemdetail.name;
+				$scope.weightO = itemdetail.weightO;
+				$scope.weight = itemdetail.weight;
+				$scope.price = itemdetail.price;
+				$scope.amount = itemdetail.amount;
+				$scope.itemtype = itemdetail.itemtype;
+			}
+			else{
+				$scope.itemno = '';
+				$scope.name = '';
+				$scope.weight = 0;
+				$scope.price = 0;
+				$scope.amount = 0;
+			}
+		}
+		$scope.getItemName = function(){
+			$scope.flag = false;
+		}
+		$scope.cancelForm = function(){
+			alert('hi');
+			$scope.itemno = '';
+			$scope.name = '';
+			$scope.weight = 0;
+			$scope.price = 0;
+			$scope.amount = 0;
 		}
 	})
 	.controller('getExInvoiceCtrl', function($scope, goalaccAPIservice){
 		$scope.exinvoices = goalaccAPIservice.getExInvoices();
+		$scope.subitems = goalaccAPIservice.getSubItems();
 		
 	});
 	

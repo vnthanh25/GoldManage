@@ -76,17 +76,25 @@
 		<hr />
 		<h4>Nhập chi tiết</h4> 
 		<div class="col-md-2">
-			<input type="text" class="form-control" placeholder="mã hàng" ng-model="itemno"/>
+			<input type="text" ng-model="itemno" uib-typeahead="item as item.code for item in subitems | filter:{code:$viewValue}" 
+			class="form-control" typeahead-show-hint="true" typeahead-min-length="0" ng-change="getItemName()">
 		</div>
 		<div class="col-md-3">
-			<input type="text" class="form-control" placeholder="Tên hàng" ng-model="name"/>
+			<input type="text" class="form-control" ng-model="itemno.name" ng-disabled="true" ng-hide="flag"/>
+			<input type="text" class="form-control" placeholder="Tên hàng" ng-model="name" ng-disabled="true" ng-show="flag"/>
 		</div>
+		<!--
 		<div class="col-md-2" ng-controller="getItemCtrl">
 			<select class="form-control" placeholder="Loại vàng" ng-model="itemtype" ng-options="item.id as (item.code + ' ' + item.name) for item in items"></select>
+		</div>
+		-->
+		<div class="col-md-1">
+			<input class="form-control" type="text" ng-model="weightO" placeholder="TL gốc">
 		</div>
 		<div class="col-md-1">
 			<input class="form-control" type="text" ng-model="weight" placeholder="TL quy đổi">
 		</div>
+		
 		<div class="col-md-2">
 			<input class="form-control" type="text" ng-model="price" placeholder="giá">
 		</div>
@@ -101,6 +109,7 @@
 				<th>Mã hàng</th>
 				<th>Tên hàng</th>
 				<th>Loại vàng</th>
+				<th>TL gốc</th>
 				<th>TL quy đổi</th>
 				<th>Giá</th>
 				<th>Thành tiền</th>
@@ -112,7 +121,8 @@
 				</td>
 				<td>{{itemdetail.no}}</td>
 				<td>{{itemdetail.name}}</td>
-				<td>{{itemdetail.itemtype}}</td>
+				<td>{{itemdetail.itemname}}</td>
+				<td>{{itemdetail.weightO}}</td>
 				<td>{{itemdetail.weight}}</td>
 				<td>{{itemdetail.price}}</td>
 				<td>{{itemdetail.amount}}</td>

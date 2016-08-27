@@ -1,5 +1,5 @@
 angular.module('invoiceim', [])
-	.controller('dpkCtrl', function($scope) {
+	.controller('imdpkCtrl', function($scope) {
 		//$scope.myDate = new Date();
 
 		$scope.minDate = new Date(
@@ -18,7 +18,7 @@ angular.module('invoiceim', [])
 		}
 	})
 	
-	.controller('dialogController', function($scope, $mdDialog, $mdMedia, goalaccAPIservice) {
+	.controller('imdialogController', function($scope, $mdDialog, $mdMedia, goalaccAPIservice) {
 		$scope.showCustom = function(event, item) {
 			$scope.bindInvoiceDetail(item);
 			var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
@@ -55,6 +55,12 @@ angular.module('invoiceim', [])
 				$scope.ininvoicedetails = goalaccAPIservice.getInInvoiceDetails(item.id);
 				//alert($scope.ininvoicedetails[0].no);
 				//alert($scope.ininvoicedetails[1].no);
+				$scope.itemno = '';
+				$scope.name = '';
+				$scope.weightO = 0;
+				$scope.weight = 0;
+				$scope.price = 0;
+				$scope.amount = 0;
 			}
 			else{
 				$scope.no = '';
@@ -66,22 +72,42 @@ angular.module('invoiceim', [])
 		//$scope.itemno = '';
 		//$scope.name = '';
 		//$scope.weight = '';
+		$scope.flag = true;
 		$scope.loadItemDetail = function(itemdetail){
-			$scope.itemno = itemdetail.no;
-			$scope.name = itemdetail.name;
-			$scope.weight = itemdetail.weight;
-			$scope.price = itemdetail.price;
-			$scope.amount = itemdetail.amount;
-			$scope.itemtype = itemdetail.itemtype;
+			if(itemdetail!=null){
+				$scope.flag = true;
+				$scope.itemno = itemdetail.no;
+				$scope.name = itemdetail.name;
+				$scope.weightO = itemdetail.weightO;
+				$scope.weight = itemdetail.weight;
+				$scope.price = itemdetail.price;
+				$scope.amount = itemdetail.amount;
+				$scope.itemtype = itemdetail.itemtype;
+			}
+			else{
+				$scope.itemno = '';
+				$scope.name = '';
+				$scope.weightO = 0;
+				$scope.weight = 0;
+				$scope.price = 0;
+				$scope.amount = 0;
+			}
 		}
-		
-		$scope.getItem = function(itemid){
-			$scope.item = goalaccAPIservice.getItem(itemid);
+		$scope.getItemName = function(){
+			$scope.flag = false;
+		}
+		$scope.cancelForm = function(){
+			alert('hi');
+			$scope.itemno = '';
+			$scope.name = '';
+			$scope.weight = 0;
+			$scope.price = 0;
+			$scope.amount = 0;
 		}
 	})
 	.controller('getInvoiceCtrl', function($scope, goalaccAPIservice){
 		$scope.ininvoices = goalaccAPIservice.getInInvoices();
+		$scope.subitems = goalaccAPIservice.getSubItems();
 		
 	});
-
 	

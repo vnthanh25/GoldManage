@@ -1,7 +1,8 @@
 (function() {
 	var app = angular.module('app', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngMaterial',
-							'navController', 'invoiceim', 'invoiceex', 'acctable', 'item', 'supplier',
-							'customer', 'worker', 'goalapp.services'])
+							'navController', 'invoiceim', 'invoiceex', 'acctable', 'item', 'subitem', 'supplier',
+							'store', 'inventorycard', 'customer', 'worker', 'unit',
+							 'goalapp.services', 'app.directives'])
 
 	// define for requirejs loaded modules
 	define('app', [], function() { return app; });
@@ -33,7 +34,7 @@
 			return origController.apply(this, arguments);
 		}
 
-		var viewsPrefix = 'Nodejs/views/';
+		var viewsPrefix = 'views/';
 
 		// For any unmatched url, send to /
 		$urlRouterProvider.otherwise("/")
@@ -51,12 +52,23 @@
 				url: "/acc-table",
 				templateUrl: viewsPrefix + "acc-table.html",
 				data: {
-					pageTitle: 'Account Table'
+					pageTitle: 'Bảng tài khoản'
 				}
 			})
 			.state('acc-table.add', {
 				url: "/add/:id",
 				templateUrl: viewsPrefix + "add-acctable.html",
+			})
+			.state('unit', {
+				url: "/unit",
+				templateUrl: viewsPrefix + "unit.html",
+				data: {
+					pageTitle: 'Đơn vị tính'
+				}
+			})
+			.state('unit.add', {
+				url: "/add/:id",
+				templateUrl: viewsPrefix + "add-unit.html",
 			})
 			.state('item', {
 				url: "/item",
@@ -68,6 +80,28 @@
 			.state('item.add', {
 				url: "/add/:id",
 				templateUrl: viewsPrefix + "add-itemgroup.html",
+			})
+			.state('subitem', {
+				url: "/subitem",
+				templateUrl: viewsPrefix + "subitem.html",
+				data: {
+					pageTitle: 'Mặt hàng'
+				}
+			})
+			.state('subitem.add', {
+				url: "/add/:id",
+				templateUrl: viewsPrefix + "add-subitem.html",
+			})
+			.state('store', {
+				url: "/store",
+				templateUrl: viewsPrefix + "store.html",
+				data: {
+					pageTitle: 'Kho hàng'
+				}
+			})
+			.state('store.add', {
+				url: "/add/:id",
+				templateUrl: viewsPrefix + "add-store.html",
 			})
 			.state('supplier', {
 				url: "/supplier",
@@ -135,6 +169,13 @@
 				url: "/add",
 				templateUrl: viewsPrefix + "add-reinvoice.html",
 			})
+			.state('inventorycard', {
+				url: "/inventorycard",
+				templateUrl: viewsPrefix + "inventorycard.html",
+				data: {
+					pageTitle: 'Thẻ kho'
+				}
+			})
 			.state('contact', {
 				url: "/contact",
 				templateUrl: viewsPrefix + "contact.html",
@@ -196,4 +237,5 @@
 			};
 		}
 	]);
+	
 }());

@@ -123,6 +123,14 @@
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -216,6 +224,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\APIControllers\AccountsController.cs" />
+    <Compile Include="Controllers\APIControllers\CustomersController.cs" />
+    <Compile Include="Controllers\APIControllers\ExInvoiceDetailsController.cs" />
+    <Compile Include="Controllers\APIControllers\ExInvoicesController.cs" />
+    <Compile Include="Controllers\APIControllers\InInvoiceDetailsController.cs" />
+    <Compile Include="Controllers\APIControllers\InInvoicesController.cs" />
+    <Compile Include="Controllers\APIControllers\ItemsController.cs" />
+    <Compile Include="Controllers\APIControllers\StoresController.cs" />
+    <Compile Include="Controllers\APIControllers\SubItemsController.cs" />
+    <Compile Include="Controllers\APIControllers\SuppliersController.cs" />
+    <Compile Include="Controllers\APIControllers\UnitsController.cs" />
+    <Compile Include="Controllers\APIControllers\WorkersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeController.cs" />
@@ -721,6 +741,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoldManageModel\GoldManageModel.csproj">
+      <Project>{41fa1e1d-157d-4e9a-bc32-fdb693eba564}</Project>
+      <Name>GoldManageModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

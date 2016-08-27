@@ -8,28 +8,27 @@
 				<th>Số CT</th>
 				<th>Ngày CT</th>
 				<th>Diễn giải</th>
+				<th>TL gốc</th>
 				<th>TL quy đổi</th>
 				<th>Tổng tiền</th>
 				<th><button class="btn btn-sm btn-default">&#10005;</button></th>
 			  </tr>
 			  <tr ng-repeat="item in ininvoices">
-				<td ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+				<td ng-controller="imdialogController as ctrl" layout="row" ng-cloak>
 				  <button class="btn btn-sm btn-default" ng-click="showCustom($event, item)">&#9998;</button>
 				</td>
 				<td>{{item.no}}</td>
 				<td>{{item.indate}}</td>
 				<td>{{item.description}}</td>
+				<td>{{item.totalweightO}}</td>
 				<td>{{item.totalweight}}</td>
 				<td>{{item.total}}</td>
 				<td><input type = "checkbox"></td>
 			  </tr>
 			</table>
 			<br>
-			<div id="dialogContainer" ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+			<div id="dialogContainer" ng-controller="imdialogController as ctrl" layout="row" ng-cloak>
 				<button class="btn btn-default" ng-click="showCustom($event, null)">&#9998; Tạo mới</button>
-				<!--<md-button class="btn btn-default" ng-click="showCustom($event, 0, null)" flex-gt-md="auto">
-				   &#9998; Tạo mới
-				</md-button>-->
 			</div>
 			<div class="ui-view-container">
 				<div ui-view>

@@ -17,6 +17,11 @@ angular.module('navController', [])
 					{
 						name: 'Tài khoản',
 						url: '#/acc-table'
+					},
+					{},
+					{
+						name: 'Đơn vị tính',
+						url: '#/unit'
 					}
 				]
 			},
@@ -25,8 +30,18 @@ angular.module('navController', [])
 				url: '#',
 				subPages: [
 					{
-						name: 'Mặt hàng',
+						name: 'Loại hàng',
 						url: '#/item'
+					},
+					{},
+					{
+						name: 'Mặt hàng',
+						url: '#/subitem'
+					},
+					{},
+					{
+						name: 'Kho hàng',
+						url: '#/store'
 					},
 					{},
 					{
@@ -70,12 +85,18 @@ angular.module('navController', [])
 			{
 				name: 'Thanh toán',
 				url: '#/blog'
+			},
+			{
+				name: 'Báo cáo',
+				url: '#',
+				subPages: [
+					{
+						name: 'Thẻ kho',
+						url: '#inventorycard'
+					}
+				]
 			}
 			/*
-			{
-				name: 'Quản lý bán hàng',
-				url: '#/grid'
-			},
 			{
 				name: 'UI',
 				url: '#/ui'

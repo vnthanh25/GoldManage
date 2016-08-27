@@ -1,4 +1,4 @@
-<form role="form" >
+<form role="form" ng-controller="getAccTblDetailCtrl">
   <h3 ng-show="edit">Thêm tài khoản:</h3>
   <h3 ng-hide="edit">Cập nhật thông tin tài khoản:</h3>
   <div data-ng-init="loadAccTblPage()">
@@ -12,10 +12,10 @@
 	  <div>
 	  <div class="form-group">
 		<label>Dùng:</label>
-		<input type="checkbox" ng-checked="isuse">
+		<input type="checkbox" ng-model="isuse">
 	  <div>
   </div>
-  <button class="btn btn-default" ng-disabled="error || incomplete">&#10004; Lưu</button>
+  <button class="btn btn-default" ng-click="add()">&#10004; Lưu</button>
   <button class="btn btn-default" ng-disabled="error || incomplete">
 	<a href="#/acc-table">&#10005; Thoát</a></button>
 </form>
