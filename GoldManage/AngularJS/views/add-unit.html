@@ -1,0 +1,21 @@
+<form role="form" ng-controller="getAccTblDetailCtrl">
+  <h3 ng-show="edit">Thêm đơn vị tính:</h3>
+  <h3 ng-hide="edit">Cập nhật đơn vị tính:</h3>
+  <div data-ng-init="loadUnitPage()">
+	  <div class="form-group">
+		<label>Mã ĐVT:</label>
+		<input class="form-control" type="text" ng-model="code" placeholder="Mã ĐVT">
+	  </div>
+	  <div class="form-group">
+		<label>Tên ĐVT:</label>
+		<input class="form-control" type="text" ng-model="name" placeholder="Tên ĐVT">
+	  <div>
+	  <div class="form-group">
+		<label>Dùng:</label>
+		<input type="checkbox" ng-model="isuse">
+	  <div>
+  </div>
+  <button class="btn btn-default" ng-click="add()">&#10004; Lưu</button>
+  <button class="btn btn-default" ng-disabled="error || incomplete">
+	<a href="#/acc-table">&#10005; Thoát</a></button>
+</form>

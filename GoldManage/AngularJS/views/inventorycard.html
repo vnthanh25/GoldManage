@@ -1,0 +1,79 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12" ng-controller="getInventoryCtrl">
+			<div class="starter-template">
+				<h3>Thẻ kho</h3>
+				<div ng-controller="fromdpkCtrl">
+					<div class="col-md-0">
+						<label>Từ ngày:</label>
+					</div>
+					<div class="col-md-3">
+						<div class="datepickerdemo">
+							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+						</div>
+					</div>
+				</div>
+				<div ng-controller="todpkCtrl">
+					<div class="col-md-0">
+						<label>Đến ngày:</label>
+					</div>
+					<div class="col-md-3">
+						<div class="datepickerdemo">
+							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<br />
+			<div class="form-group">
+			<div ng-controller="getAccTblCtrl">
+				<div class="col-md-0">
+					<label>Mặt hàng:</label>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" ng-model="debit" ng-options="acctbl.id as (acctbl.code + '--' +acctbl.name) for acctbl in acctables"></select>
+				</div>
+			</div>
+			<br />
+			<br />
+			<br />
+			<div ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+				<button class="btn btn-default" ng-click="showCustom($event, null)">&#9998; Xem</button>&nbsp;&nbsp;
+				<button class="btn btn-default" ng-click="exportData()">&#9998; In</button>
+			</div>
+			<br />
+			<br />
+			<div id="exportable">
+				<table class="table table-bordered" ng-hide="hidetbl">
+				  <tr>
+					<th rowspan="2">Ngày tháng</th>
+					<th rowspan="2">Số CT</th>
+					<th rowspan="2">Diễn giải</th>
+					<th rowspan="2">Loại vàng</th>
+					<th rowspan="2">TL quy đổi</th>
+					<th colspan="3">Trọng lượng</th>
+					<th rowspan="2">Ghi chú</th>
+				  </tr>
+				  <tr>
+					<th>Nhập</th>
+					<th>Xuất</th>
+					<th>Tồn</th>
+				  </tr>
+				  
+				  <tr ng-repeat="item in ininvoices">
+					<td>{{item.no}}</td>
+					<td>{{item.no}}</td>
+					<td>{{item.indate}}</td>
+					<td>{{item.description}}</td>
+					<td>{{item.totalweight}}</td>
+					<td>{{item.total}}</td>
+					<td>{{item.no}}</td>
+					<td>{{item.no}}</td>
+					<td>{{item.no}}</td>
+				  </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

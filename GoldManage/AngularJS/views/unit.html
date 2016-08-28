@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6" ng-controller="getUnitCtrl">
+			<h3>Đơn vị tính</h3>
+			<table class="table table-bordered">
+			  <tr>
+				<th>&#9998;</th>
+				<th>Mã ĐVT</th>
+				<th>Tên ĐVT</th>
+				<th><button class="btn btn-sm btn-default">&#9745;</button></th>
+				<th><button class="btn btn-sm btn-default" ng-click="remove()">&#10005;</button></th>
+			  </tr>
+			  <tr ng-repeat="unit in units">
+				<td>
+				  <!--<button class="btn btn-sm btn-default" ng-click="removepop()">&#9998;</button>-->
+				  <a class="btn btn-small btn-primary" href="#/unit/add/{{unit.id}}">&#9998;</a>
+				</td>
+				<td>{{unit.code}}</td>
+				<td>{{unit.name}}</td>
+				<td><input type = "checkbox" ng-model="unit.isuse"></td>
+				<td><input type = "checkbox" ng-model="unit.isdelete"></td>
+			  </tr>
+			</table>
+			<br>
+			<a class="btn btn-default" href="#/unit/add/{{-1}}">&#9998; Tạo mới</a>
+			<div class="ui-view-container">
+				<div ui-view>
+				  <!-- default content can go here but there will be a flicker on some pages loading -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
