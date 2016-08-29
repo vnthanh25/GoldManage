@@ -13,7 +13,7 @@ using System.Web.Http.Cors;
 
 namespace GoldManage.Controllers.APIControllers
 {
-    [EnableCors(origins: "http://localhost", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:5555", headers: "*", methods: "*")]
     public class UnitsController : ApiController
     {
         private GoldManageEntities db = new GoldManageEntities();

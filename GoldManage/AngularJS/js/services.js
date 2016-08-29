@@ -1,5 +1,5 @@
 angular.module('goalapp.services', [])
-  .factory('goalaccAPIservice', function() {
+.factory('goalaccAPIservice', function($http) {
 	var acctable = [
 			{ id: 1, code: '111', name: 'Tiền mặt', isuse: true, isdelete: false},
 			{ id: 2, code: '222', name: 'Tiền gửi ngân hàng', isuse: true, isdelete: false}
@@ -59,25 +59,31 @@ angular.module('goalapp.services', [])
 		  return acctable;
 		},
 		getUnits: function () {
-		    $.ajax({
-		        type: "GET",
-		        dataType: "jsonp",
-		        url: "http://localhost:55556/api/Units",
-		        //data: { "v": "1.0", "num": "10", "q": "http://feeds.feedburner.com/mathrubhumi" },
+		    //return $http.get('http://localhost:55556/api/Units');
+		    var dfd = $q.defer();
+		    //$.ajax({
+		    //    type: "GET",
+		    //    dataType: "jsonp",
+		    //    url: "http://localhost:55556/api/Units",
+		    //    //data: { "v": "1.0", "num": "10", "q": "http://feeds.feedburner.com/mathrubhumi" },
 
-		        success: function (result) {
-		            return result;
-		        }
-		    });		 //   $.getJSON("http://localhost:55556/api/Units")
-         //.done(function (data) {
-         //    //// On success, 'data' contains a list of products.
-         //    //$.each(data, function (key, item) {
-         //    //    // Add a list item for the product.
-         //    //    $('<li>', { text: formatItem(item) }).appendTo($('#products'));
-         //    //});
-         //    return data;
-         //});
-		    return unit;
+		    //    success: function (result) {
+		    //        dfd.resolve(result);
+		    //        //return result;
+		    //    }
+		    //});
+		    $.getJSON("http://localhost:55556/api/Units")
+      .done(function (result) {
+          //// On success, 'data' contains a list of products.
+          //$.each(data, function (key, item) {
+          //    // Add a list item for the product.
+          //    $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+          //});
+          dfd.resolve(result);
+      });
+
+		    //return dfd.promise();
+		    //return unit;
 		},
 		getItems: function(){
 			return item;

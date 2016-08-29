@@ -1,2 +1,0 @@
-# GoldManage
-GoldManage

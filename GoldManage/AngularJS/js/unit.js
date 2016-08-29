@@ -1,6 +1,16 @@
 angular.module('unit', [])
-	.controller('getUnitCtrl', function($scope, $stateParams, goalaccAPIservice){
-		$scope.units = goalaccAPIservice.getUnits();
+	.controller('getUnitCtrl', function ($scope, $stateParams, goalaccAPIservice) {
+    //var units = goalaccAPIservice.getUnits();
+    //$.when(units).then(function (result) {
+    //    $scope.units = result;
+    //});
+        goalaccAPIservice.getUnits().done(function(result){
+            $scope.units = result;
+        });
+	    //goalaccAPIservice.getUnits().success(function (u) {
+	    //    alert(u[0].code);
+        //    $scope.units=u;
+        //});
 		$scope.loadUnitPage = function(){
 			var unit = [];
 			if($stateParams.id !=-1){
